@@ -14,3 +14,13 @@ app.get("/", (req, res) => {
 
 app.use(notFoundMiddleware);
 app.use(errorMiddleware);
+
+const port = process.env.PORT || 3000;
+
+const start = async () => {
+  try {
+    app.listen(port, console.log("Server live"));
+  } catch (error) {
+    console.log(error);
+  }
+};
