@@ -1,4 +1,5 @@
 require("dotenv").config();
+require("express-async-errors");
 
 const express = require("express");
 const app = express();
@@ -8,6 +9,7 @@ const errorMiddleware = require("./middleware/error-handler");
 
 const connectDB = require("./db/connect");
 const productRoute = require("./routes/product");
+
 app.use(express.json());
 
 app.get("/", (req, res) => {
@@ -29,3 +31,5 @@ const start = async () => {
     console.log(error);
   }
 };
+
+start();
